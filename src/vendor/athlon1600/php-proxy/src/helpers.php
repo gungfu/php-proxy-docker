@@ -79,7 +79,8 @@ function str_rot_pass($str, $key, $decrypt = false){
 }
 
 function app_url(){
-	return (!empty($_SERVER['HTTPS']) ? 'https://' : 'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+	//return (!empty($_SERVER['HTTPS']) ? 'https://' : 'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+	return 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 }
 
 function render_string($str, $vars = array()){
@@ -116,7 +117,8 @@ function render_template($file_path, $vars = array()){
 function add_http($url){
 
 	if(!preg_match('#^https?://#i', $url)){
-		$url = 'http://' . $url;
+		//$url = 'http://' . $url;
+		$url = 'https://' . $url;
 	}
 	
 	return $url;
